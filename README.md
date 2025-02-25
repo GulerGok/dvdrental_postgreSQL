@@ -1,4 +1,4 @@
-# dvdrental_postgreSQL
+# Ödev1 (postgreSQL üzerinde dvdrental veritabanıyla çalışma) 
 Sorgu örneklerini [bu link](https://neon.tech/postgresql/postgresql-getting-started/postgresql-sample-database) üzerinden ulaştığımız veritabanı ile çalıştırabiliriz.
 
 # SQL Sorguları
