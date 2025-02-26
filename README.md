@@ -87,7 +87,7 @@ SELECT * FROM film WHERE title LIKE 'C%' AND LENGTH(title) > 90 AND rental_rate 
 
 # Ödev4
 
-### 1. Film Tablosunda Bulunan replacement_cost Sütununda Bulunan Birbirinden Farklı Reğerleri Sıralama:
+### 1. Film Tablosunda Bulunan replacement_cost Sütununda Bulunan Birbirinden Farklı Değerleri Sıralama:
 Bu sorgu, film tablosundaki replacement_cost sütununda bulunan birbirinden farklı değerleri küçükten büyüğe doğru sıralar. 
 ```sql
 SELECT DISTINCT replacement_cost FROM film ORDER BY replacement_cost ASC;
@@ -96,8 +96,7 @@ SELECT DISTINCT replacement_cost FROM film ORDER BY replacement_cost ASC;
 ### 2. Film Tablosunda Bulunan replacement_cost Sütununda Birbirinden Farklı Kaç Tane Verinin Olduğunu Bulma:
 Bu sorgu, film tablosundaki replacement_cost sütununda bulunan birbirinden farklı değerlerin sayısını döndürür.
 ```sql
-SELECT COUNT(DISTINCT replacement_cost) 
-FROM film;
+SELECT COUNT(DISTINCT replacement_cost) FROM film;
 ```
 
 ### 3. Film İsimlerinde (title) 'T' Karakteri ile Başlayan ve Rating 'G' Olanların Sayısını Bulma:
