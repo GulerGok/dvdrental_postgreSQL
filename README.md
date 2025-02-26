@@ -58,4 +58,30 @@ SELECT * FROM film WHERE rental_rate IN(0.99, 2.99, 4.99) AND replacement_cost I
 ```
 ***
 
+# Ödev2
+
+## 1. Ülke ismi 'A' ile başlayıp 'a' ile bitenler:
+Bu sorgu, country tablosundaki country sütunundaki, 'A' harfi ile başlayıp 'a' harfi ile biten tüm ülke isimlerini listeleyecektir.
+```sql
+SELECT country FROM country WHERE country LIKE 'A%a';
+```
+
+## 2. En az 6 karakterden oluşan ve sonu 'n' harfiyle biten ülke isimleri:
+Bu sorgu, en az 6 karakter uzunluğunda olan ve sonu 'n' harfi ile biten ülke isimlerini seçer.
+```sql
+SELECT country FROM country WHERE LENGTH(country) >= 6AND country LIKE '%n';
+```
+
+## 3. En az 4 'T' harfi içeren film isimlerini listeleme (büyük/küçük harf fark etmeksizin):
+Bu sorgu, title sütunundaki filmlerden en az 4 't' harfi içerenleri seçer. LOWER fonksiyonu, büyük/küçük harf farkını ortadan kaldırır ve REPLACE ile 't' harflerini sayar.
+```sql
+SELECT * FROM film WHERE LENGTH(LOWER(title)) - LENGTH(REPLACE(LOWER(title), 't', '')) >= 4;
+```
+
+## 4. Başlık 'C' ile başlayıp, uzunluğu 90'dan büyük ve rental_rate 2.99 olan filmleri listeleme:
+Bu sorgu, başlığı 'C' ile başlayan, uzunluğu 90'dan büyük ve rental_rate değeri 2.99 olan filmleri seçer.
+```sql
+SELECT * FROM film WHERE title LIKE 'C%' AND LENGTH(title) > 90 AND rental_rate = 2.99;
+```
+
 
