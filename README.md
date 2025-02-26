@@ -117,5 +117,5 @@ Bu sorgu, city tablosundaki şehir isimlerinin sonu 'R' veya 'r' harfi ile biten
 ```sql
 SELECT COUNT(*) FROM city WHERE city ILIKE '%r';
 ```
-
+***
 
