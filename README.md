@@ -87,32 +87,32 @@ SELECT * FROM film WHERE title LIKE 'C%' AND LENGTH(title) > 90 AND rental_rate 
 
 # Ödev4
 
-### 1. Film Tablosunda Bulunan replacement_cost Sütununda Bulunan Birbirinden Farklı Değerleri Sıralayın
+### 1. Film tablosunda bulunan replacement_cost sütununda bulunan birbirinden farklı değerleri sıralama:
 Bu sorgu, film tablosundaki replacement_cost sütununda bulunan birbirinden farklı değerleri küçükten büyüğe doğru sıralar. 
 ```sql
 SELECT DISTINCT replacement_cost FROM film ORDER BY replacement_cost ASC;
 ```
 
-### 2. Film Tablosunda Bulunan replacement_cost Sütununda Birbirinden Farklı Kaç Tane Veri Vardır?
+### 2. Film tablosunda bulunan replacement_cost sütununda birbirinden farklı kaç tane verinin olduğunu bulma:
 Bu sorgu, film tablosundaki replacement_cost sütununda bulunan birbirinden farklı değerlerin sayısını döndürür.
 ```sql
 SELECT COUNT(DISTINCT replacement_cost) 
 FROM film;
 ```
 
-### 3. Film İsimlerinde (title) 'T' Karakteri ile Başlayan ve rating 'G' Olanları Sayın
+### 3. Film isimlerinde (title) 'T' karakteri ile başlayan ve rating 'G' olanların sayısını bulma:
 Bu sorgu, başlıkları 'T' harfi ile başlayan ve rating değeri 'G' olan filmlerin sayısını döndürecektir.
 ```sql
 SELECT COUNT(*) FROM film WHERE title LIKE 'T%' AND rating = 'G';
 ```
 
-### 4. Country Tablosunda Bulunan Ülke İsimlerinden 5 Karakterden Oluşanları Sayın
+### 4. Country tablosunda bulunan ülke isimlerinden 5 karakterden oluşanların sayısını bulma:
 Bu sorgu, country tablosunda bulunan 5 karakterden oluşan ülke isimlerinin sayısını döndürecektir.
 ```sql
 SELECT COUNT(*) FROM country WHERE LENGTH(country) = 5;
 ```
 
-### 5. City Tablosundaki Şehir İsimlerinin 'R' veya 'r' Karakteri ile Bittiği Sayıyı Bulun
+### 5. City tablosundaki şehir isimlerinin 'R' veya 'r' karakteri ile bitenlerin sayısını bulma:
 Bu sorgu, city tablosundaki şehir isimlerinin sonu 'R' veya 'r' harfi ile biten şehirlerin sayısını döndürecektir.
 ```sql
 SELECT COUNT(*) FROM city WHERE city ILIKE '%r';
