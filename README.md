@@ -119,3 +119,23 @@ SELECT COUNT(*) FROM city WHERE city ILIKE '%r';
 ```
 ***
 
+# Ödev5
+
+### 1. Film Tablosunda Bulunan ve Film İsmi (title) 'n' Karakteri ile Biten En Uzun (length) 5 Filmi Sıralama:
+Bu sorgu, title'ı 'n' ile biten ve en uzun (length) olan 5 filmi sıralar.
+```sql
+SELECT title, length FROM film WHERE title ILIKE '%n' ORDER BY length DESC LIMIT 5;
+```
+
+### 2. Film Tablosunda Bulunan ve Film İsmi (title) 'n' Karakteri ile Biten En Kısa (length) İkinci (6, 7, 8, 9, 10) 5 Filmi Sıralama:
+Bu sorgu, title'ı 'n' ile biten ve en kısa uzunlukta olan ikinci grup (6, 7, 8, 9, 10) filmleri sıralar.
+```sql
+SELECT title, length FROM film WHERE title ILIKE '%n' ORDER BY length ASC LIMIT 5 OFFSET 5;
+```
+
+### 3. Customer Tablosunda Bulunan Last Name Sütununa Göre Azalan Yapılan Sıralamada Store_id 1 Olmak Koşuluyla İlk 4 Veriyi Sıralama:
+Bu sorgu, store_id değeri 1 olan müşterilerin last_name sütununa göre azalan sırayla ilk 4 verisini getirir.
+```sql
+SELECT * FROM customer WHERE store_id = 1 ORDER BY last_name DESC LIMIT 4;
+```
+***
