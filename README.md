@@ -60,25 +60,25 @@ SELECT * FROM film WHERE rental_rate IN(0.99, 2.99, 4.99) AND replacement_cost I
 
 # Ödev3
 
-### 1. Ülke ismi 'A' ile başlayıp 'a' ile bitenler:
+### 1. Ülke İsmi 'A' ile Başlayıp 'a' ile Bitenler:
 Bu sorgu, country tablosundaki country sütunundaki, 'A' harfi ile başlayıp 'a' harfi ile biten tüm ülke isimlerini listeleyecektir.
 ```sql
 SELECT country FROM country WHERE country LIKE 'A%a';
 ```
 
-### 2. En az 6 karakterden oluşan ve sonu 'n' harfiyle biten ülke isimleri:
+### 2. En Az 6 Karakterden Oluşan ve Sonu 'n' Harfiyle Biten Ülke İsimleri:
 Bu sorgu, en az 6 karakter uzunluğunda olan ve sonu 'n' harfi ile biten ülke isimlerini seçer.
 ```sql
 SELECT country FROM country WHERE LENGTH(country) >= 6AND country LIKE '%n';
 ```
 
-### 3. En az 4 'T' harfi içeren film isimlerini listeleme (büyük/küçük harf fark etmeksizin):
+### 3. En Az 4 'T' Harfi İçeren Film İsimlerini Listeleme (Büyük/Küçük Harf Fark Etmeksizin):
 Bu sorgu, title sütunundaki filmlerden en az 4 't' harfi içerenleri seçer. LOWER fonksiyonu, büyük/küçük harf farkını ortadan kaldırır ve REPLACE ile 't' harflerini sayar.
 ```sql
 SELECT * FROM film WHERE LENGTH(LOWER(title)) - LENGTH(REPLACE(LOWER(title), 't', '')) >= 4;
 ```
 
-### 4. Başlık 'C' ile başlayıp, uzunluğu 90'dan büyük ve rental_rate 2.99 olan filmleri listeleme:
+### 4. Başlık 'C' ile Başlayıp, Uzunluğu 90'dan Büyük ve rental_rate 2.99 Olan Filmleri Listeleme:
 Bu sorgu, başlığı 'C' ile başlayan, uzunluğu 90'dan büyük ve rental_rate değeri 2.99 olan filmleri seçer.
 ```sql
 SELECT * FROM film WHERE title LIKE 'C%' AND LENGTH(title) > 90 AND rental_rate = 2.99;
@@ -87,32 +87,32 @@ SELECT * FROM film WHERE title LIKE 'C%' AND LENGTH(title) > 90 AND rental_rate 
 
 # Ödev4
 
-### 1. Film tablosunda bulunan replacement_cost sütununda bulunan birbirinden farklı değerleri sıralama:
+### 1. Film Tablosunda Bulunan replacement_cost Sütununda Bulunan Birbirinden Farklı Reğerleri Sıralama:
 Bu sorgu, film tablosundaki replacement_cost sütununda bulunan birbirinden farklı değerleri küçükten büyüğe doğru sıralar. 
 ```sql
 SELECT DISTINCT replacement_cost FROM film ORDER BY replacement_cost ASC;
 ```
 
-### 2. Film tablosunda bulunan replacement_cost sütununda birbirinden farklı kaç tane verinin olduğunu bulma:
+### 2. Film Tablosunda Bulunan replacement_cost Sütununda Birbirinden Farklı Kaç Tane Verinin Olduğunu Bulma:
 Bu sorgu, film tablosundaki replacement_cost sütununda bulunan birbirinden farklı değerlerin sayısını döndürür.
 ```sql
 SELECT COUNT(DISTINCT replacement_cost) 
 FROM film;
 ```
 
-### 3. Film isimlerinde (title) 'T' karakteri ile başlayan ve rating 'G' olanların sayısını bulma:
+### 3. Film İsimlerinde (title) 'T' Karakteri ile Başlayan ve Rating 'G' Olanların Sayısını Bulma:
 Bu sorgu, başlıkları 'T' harfi ile başlayan ve rating değeri 'G' olan filmlerin sayısını döndürecektir.
 ```sql
 SELECT COUNT(*) FROM film WHERE title LIKE 'T%' AND rating = 'G';
 ```
 
-### 4. Country tablosunda bulunan ülke isimlerinden 5 karakterden oluşanların sayısını bulma:
+### 4. Country Tablosunda Bulunan Ülke İsimlerinden 5 Karakterden Oluşanların Sayısını Bulma:
 Bu sorgu, country tablosunda bulunan 5 karakterden oluşan ülke isimlerinin sayısını döndürecektir.
 ```sql
 SELECT COUNT(*) FROM country WHERE LENGTH(country) = 5;
 ```
 
-### 5. City tablosundaki şehir isimlerinin 'R' veya 'r' karakteri ile bitenlerin sayısını bulma:
+### 5. City Tablosundaki Şehir İsimlerinin 'R' veya 'r' Karakteri ile Bitenlerin Sayısını Bulma:
 Bu sorgu, city tablosundaki şehir isimlerinin sonu 'R' veya 'r' harfi ile biten şehirlerin sayısını döndürecektir.
 ```sql
 SELECT COUNT(*) FROM city WHERE city ILIKE '%r';
