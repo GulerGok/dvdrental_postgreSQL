@@ -138,3 +138,29 @@ Bu sorgu, store_id değeri 1 olan müşterilerin last_name sütununa göre azala
 SELECT * FROM customer WHERE store_id = 1 ORDER BY last_name DESC LIMIT 4;
 ```
 ***
+
+# Ödev6
+
+### 1. Film Tablosunda Bulunan Rental Rate Değerlerinin Ortalamasını Sıralama:
+Bu sorgu, rental_rate sütunundaki değerlerin ortalamasını hesaplar.
+```sql
+SELECT AVG(rental_rate) AS average_rental_rate FROM film;
+```
+
+### 2. Film Tablosunda Bulunan Filmlerden Kaç Tanesi 'C' Karakteri ile Başladığını Bulma:
+Bu sorgu, title sütununda 'C' harfi ile başlayan filmlerin sayısını hesaplar.
+```sql
+SELECT COUNT(*) AS count_films_starting_with_C FROM film WHERE title ILIKE 'C%';
+```
+
+### 3. Film Tablosunda Bulunan Filmlerden Rental Rate Değeri 0.99’a Eşit Olan En Uzun (Length) Film Kaç Dakika Olduğunu Bulma:
+Bu sorgu, rental_rate değeri 0.99 olan filmlerden en uzun olanının length değerini bulur.
+```sql
+SELECT MAX(length) AS longest_movie_length FROM film WHERE rental_rate = 0.99;
+```
+
+### 4. Film Tablosunda Bulunan Filmlerin Uzunluğu 150 Dakikadan Büyük Olanlarına Ait Kaç Farklı Replacement Cost Değeri Olduğunu Bulma:
+Bu sorgu, length değeri 150 dakikadan büyük olan filmler için replacement_cost değerlerinin farklı sayısını hesaplar.
+```sql
+SELECT COUNT(DISTINCT replacement_cost) AS distinct_replacement_costs FROM film WHERE length > 150;
+```
