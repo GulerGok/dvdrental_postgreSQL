@@ -164,3 +164,30 @@ Bu sorgu, length değeri 150 dakikadan büyük olan filmler için replacement_co
 ```sql
 SELECT COUNT(DISTINCT replacement_cost) AS distinct_replacement_costs FROM film WHERE length > 150;
 ```
+***
+
+# Ödev7
+
+### 1. Film Tablosunda Bulunan Filmleri Rating Değerlerine Göre Gruplama:
+Bu sorgu, rating değerlerine göre film tablosundaki filmleri gruplar ve her bir grup için film sayısını hesaplar. Sonuçlar, film sayısına göre azalan sırayla sıralanır.
+```sql
+SELECT rating, COUNT(*) AS film_count FROM film GROUP BY rating ORDER BY film_count DESC;
+```
+
+### 2. Film Tablosunda Bulunan Filmleri Replacement Cost Sütununa Göre Grupladığımızda, Film Sayısı 50'den Fazla Olan Replacement Cost Değerini ve Karşılık Gelen Film Sayısını Sıralama:
+Bu sorgu, replacement_cost sütununa göre filmleri gruplar ve her bir grup için film sayısını hesaplar. Sadece 50'den fazla film bulunan replacement_cost değerleri ve bu değerlere karşılık gelen film sayıları döndürülür.
+```sql
+SELECT replacement_cost, COUNT(*) AS film_count FROM film GROUP BY replacement_cost HAVING COUNT(*)>50 ORDER BY film_count DESC;
+```
+
+### 3. Customer Tablosunda Bulunan Store_id Değerlerine Karşılık Gelen Müşteri Sayılarını Bulma:
+Bu sorgu, store_id değerlerine göre customer tablosundaki müşteri sayısını hesaplar.
+```sql
+SELECT store_id, COUNT(*) AS customer_count FROM customer GROUP BY store_id;
+```
+
+### 4. City Tablosunda Bulunan Şehir Verilerini Country_id Sütununa Göre Gruplandırdıktan Sonra En Fazla Şehir Sayısı Barındıran Country_id Bilgisini ve Şehir Sayısını Paylaşma:
+Bu sorgu, country_id sütununa göre city tablosundaki şehirleri gruplar ve her bir country_id için şehir sayısını hesaplar. En fazla şehir barındıran country_id bilgisi ve şehir sayısı döndürülür.
+```sql
+SELECT country_id, COUNT(*) AS city_count FROM city GROUP BY country_id ORDER BY city_count DESC LIMIT 1;
+```
