@@ -364,6 +364,6 @@ Bu sorgu, Rental ve Customer tablolarını customer_id üzerinden birleştirir v
 SELECT rental.rental_id, customer.first_name, customer.last_name
 FROM rental
 FULL JOIN customer
-ON rental.customer_id = 
+ON rental.customer_id = customer.customer_id;
 ```
 ***
