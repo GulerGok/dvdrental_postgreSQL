@@ -311,3 +311,28 @@ WHERE name = 'Sibella Corradino' AND birthday = '1983-10-02';  -- Adı 'Sibella 
 ```
 ***
 
+# Ödev9
+
+### 1. City Tablosu ile Country Tablosunda Bulunan Şehir (city) ve Ülke (country) İsimlerini Birlikte Görebileceğimiz INNER JOIN Sorgusu:
+Bu sorgu, City ve Country tablolarını country_id üzerinden birleştirir ve city ve country sütunlarını birlikte listeleyerek şehir ve ülke isimlerini gösterir.
+```sql
+SELECT city.city, country.country 
+FROM City 
+INNER JOIN Country ON City.country_id = Country.country_id;
+```
+
+### 2. Customer Tablosu ile Payment Tablosunda Bulunan Payment_id ile Customer Tablosundaki First_name ve Last_name İsimlerini Birlikte Görebileceğimiz INNER JOIN Sorgusu:
+Bu sorgu, Customer ve Payment tablolarını customer_id üzerinden birleştirir ve payment_id, first_name ve last_name sütunlarını birlikte listeleyerek ödeme kimliklerini ve müşteri isimlerini gösterir.
+```sql
+SELECT Payment.payment_id, Customer.first_name, Customer.last_name 
+FROM Customer 
+INNER JOIN Payment ON Customer.customer_id = Payment.customer_id;
+```
+
+### 3. Customer Tablosu ile Rental Tablosunda Bulunan Rental_id ile Customer Tablosundaki First_name ve Last_name İsimlerini Birlikte Görebileceğimiz INNER JOIN Sorgusu:
+Bu sorgu, Rental ve Customer tablolarını customer_id üzerinden birleştirir ve rental_id, first_name ve last_name sütunlarını birlikte listeleyerek kiralama kimliklerini ve müşteri isimlerini gösterir.
+```sql
+SELECT Rental.rental_id, Customer.first_name, Customer.last_name 
+FROM Rental 
+INNER JOIN Customer ON Rental.customer_id = Customer.customer_id;
+```
