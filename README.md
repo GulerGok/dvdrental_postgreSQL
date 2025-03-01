@@ -336,3 +336,34 @@ SELECT Rental.rental_id, Customer.first_name, Customer.last_name
 FROM Rental 
 INNER JOIN Customer ON Rental.customer_id = Customer.customer_id;
 ```
+***
+
+# Ödev10
+
+### 1. LEFT JOIN Sorgusu:
+Bu sorgu, City ve Country tablolarını country_id üzerinden birleştirir ve city ve country sütunlarını birlikte listeleyerek şehir ve ülke isimlerini gösterir.
+```sql
+SELECT city.city, country.country
+FROM city
+LEFT JOIN country
+ON city.country_id = country.country_id;
+```
+
+### 2. RIGHT JOIN Sorgusu:
+Bu sorgu, Customer ve Payment tablolarını customer_id üzerinden birleştirir ve payment_id, first_name ve last_name sütunlarını birlikte listeleyerek ödeme kimliklerini ve müşteri isimlerini gösterir.
+```sql
+SELECT payment.payment_id, customer.first_name, customer.last_name
+FROM payment
+RIGHT JOIN customer
+ON payment.customer_id = customer.customer_id;
+```
+
+### 3. FULL JOIN Sorgusu:
+Bu sorgu, Rental ve Customer tablolarını customer_id üzerinden birleştirir ve rental_id, first_name ve last_name sütunlarını birlikte listeleyerek kiralama kimliklerini ve müşteri isimlerini gösterir.
+```sql
+SELECT rental.rental_id, customer.first_name, customer.last_name
+FROM rental
+FULL JOIN customer
+ON rental.customer_id = customer.customer_id;
+```
+***
