@@ -437,7 +437,7 @@ Bu sorgu, actor ve customer tablolarındaki first_name sütunlarında kesişen (
     SELECT first_name 
     FROM actor
 )
-INTERSECT
+INTERSECT ALL
 (
     SELECT first_name 
     FROM customer
@@ -452,7 +452,7 @@ Bu sorgu, actor tablosunda bulunan ancak customer tablosunda bulunmayan first_na
     SELECT first_name 
     FROM actor
 )
-EXCEPT
+EXCEPT ALL
 (
     SELECT first_name 
     FROM customer
