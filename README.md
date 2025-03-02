@@ -368,9 +368,9 @@ ON rental.customer_id = customer.customer_id;
 ```
 ***
 
-# Ödev 11
+# Ödev11
 
-### 1. Actor ve Customer Tablolarında Bulunan First_name Sütunları İçin Tüm Verileri Sıralayalım
+### 1. Actor ve Customer Tablolarında Bulunan First_name Sütunları İçin Tüm Verileri Sıralama:
 Bu sorgu, actor ve customer tablolarındaki first_name sütunlarını birleştirir ve alfabetik olarak sıralar.
 ```sql
 (
@@ -385,7 +385,7 @@ UNION
 ORDER BY first_name;
 ```
 
-### 2. Actor ve Customer Tablolarında Bulunan First_name Sütunları İçin Kesişen Verileri Sıralayalım
+### 2. Actor ve Customer Tablolarında Bulunan First_name Sütunları İçin Kesişen Verileri Sıralama:
 Bu sorgu, actor ve customer tablolarındaki first_name sütunlarında kesişen (ortak) verileri listeler ve alfabetik olarak sıralar.
 ```sql
 (
@@ -400,7 +400,7 @@ INTERSECT
 ORDER BY first_name;
 ```
 
-### 3. Actor ve Customer Tablolarında Bulunan First_name Sütunları İçin İlk Tabloda Bulunan Ancak İkinci Tabloda Bulunmayan Verileri Sıralayalım
+### 3. Actor ve Customer Tablolarında Bulunan First_name Sütunları İçin İlk Tabloda Bulunan Ancak İkinci Tabloda Bulunmayan Verileri Sıralama:
 Bu sorgu, actor tablosunda bulunan ancak customer tablosunda bulunmayan first_name sütunundaki verileri listeler ve alfabetik olarak sıralar.
 ```sql
 (
@@ -415,7 +415,7 @@ EXCEPT
 ORDER BY first_name;
 ```
 
-### 4. Actor ve Customer Tablolarında Bulunan First_name Sütunları İçin Tüm Verileri Tekrar Eden Verilerle Birlikte Sıralayalım
+### 4. Actor ve Customer Tablolarında Bulunan First_name Sütunları İçin Tüm Verileri Tekrar Eden Verilerle Birlikte Sıralama:
 Bu sorgu, actor ve customer tablolarındaki first_name sütunlarını birleştirir ve tekrar eden verilerle birlikte alfabetik olarak sıralar.
 ```sql
 (
@@ -430,7 +430,7 @@ UNION ALL
 ORDER BY first_name;
 ```
 
-### 5. Actor ve Customer Tablolarında Bulunan First_name Sütunları İçin Kesişen Verileri Tekrar Eden Verilerle Birlikte Sıralayalım
+### 5. Actor ve Customer Tablolarında Bulunan First_name Sütunları İçin Kesişen Verileri Tekrar Eden Verilerle Birlikte Sıralama:
 Bu sorgu, actor ve customer tablolarındaki first_name sütunlarında kesişen (ortak) verileri tekrar eden verilerle birlikte listeler ve alfabetik olarak sıralar.
 ```sql
 (
@@ -445,7 +445,7 @@ INTERSECT ALL
 ORDER BY first_name;
 ```
 
-### 6. Actor ve Customer Tablolarında Bulunan First_name Sütunları İçin İlk Tabloda Bulunan Ancak İkinci Tabloda Bulunmayan Verileri Tekrar Eden Verilerle Birlikte Sıralayalım
+### 6. Actor ve Customer Tablolarında Bulunan First_name Sütunları İçin İlk Tabloda Bulunan Ancak İkinci Tabloda Bulunmayan Verileri Tekrar Eden Verilerle Birlikte Sıralama:
 Bu sorgu, actor tablosunda bulunan ancak customer tablosunda bulunmayan first_name sütunundaki verileri tekrar eden verilerle birlikte listeler ve alfabetik olarak sıralar.
 ```sql
 (
@@ -460,3 +460,40 @@ EXCEPT ALL
 ORDER BY first_name; 
 ```
 ***
+
+# Ödev12
+
+### 1. Film Tablosunda Film Uzunluğu Length Sütununda Gösterilmektedir. Uzunluğu Ortalama Film Uzunluğundan Fazla Kaç Tane Film Olduğunu Bulma:
+Bu sorgu, film tablosunda uzunluğu ortalama film uzunluğundan fazla olan filmlerin sayısını bulur.
+```sql
+SELECT COUNT(*) AS num_of_films
+FROM film
+WHERE length > (SELECT AVG(length) FROM film);
+```
+
+### 2. Film Tablosunda En Yüksek Rental_Rate Değerine Sahip Kaç Tane Film Olduğunu Bulma:
+Bu sorgu, film tablosunda en yüksek rental_rate değerine sahip filmlerin sayısını bulur.
+```sql
+SELECT COUNT(*) AS num_of_films
+FROM film
+WHERE rental_rate = (SELECT MAX(rental_rate) FROM film);
+```
+
+### 3. Film Tablosunda En Düşük Rental_Rate Ve En Düşük Replacement_Cost Değerlerine Sahip Filmleri Sıralama:
+Bu sorgu, film tablosunda en düşük rental_rate ve en düşük replacement_cost değerlerine sahip filmleri sıralar.
+```sql
+SELECT * 
+FROM film
+WHERE rental_rate = (SELECT MIN(rental_rate) FROM film)
+  AND replacement_cost = (SELECT MIN(replacement_cost) FROM film)
+ORDER BY rental_rate, replacement_cost;
+```
+
+### 4. Payment Tablosunda En Fazla Sayıda Alışveriş Yapan Müşterileri (Customer) Sıralama:
+Bu sorgu, payment tablosunda en fazla sayıda alışveriş yapan müşterileri sıralar.
+```sql
+SELECT customer_id, COUNT(*) AS total_purchases
+FROM payment
+GROUP BY customer_id
+ORDER BY total_purchases DESC, customer_id;
+```
