@@ -367,3 +367,96 @@ FULL JOIN customer
 ON rental.customer_id = customer.customer_id;
 ```
 ***
+
+# Ödev 11
+
+### 1. Actor ve Customer Tablolarında Bulunan First_name Sütunları İçin Tüm Verileri Sıralayalım
+Bu sorgu, actor ve customer tablolarındaki first_name sütunlarını birleştirir ve alfabetik olarak sıralar.
+```sql
+(
+    SELECT first_name 
+    FROM actor
+)
+UNION
+(
+    SELECT first_name 
+    FROM customer
+)
+ORDER BY first_name;
+```
+
+### 2. Actor ve Customer Tablolarında Bulunan First_name Sütunları İçin Kesişen Verileri Sıralayalım
+Bu sorgu, actor ve customer tablolarındaki first_name sütunlarında kesişen (ortak) verileri listeler ve alfabetik olarak sıralar.
+```sql
+(
+    SELECT first_name 
+    FROM actor
+)
+INTERSECT
+(
+    SELECT first_name 
+    FROM customer
+)
+ORDER BY first_name;
+```
+
+### 3. Actor ve Customer Tablolarında Bulunan First_name Sütunları İçin İlk Tabloda Bulunan Ancak İkinci Tabloda Bulunmayan Verileri Sıralayalım
+Bu sorgu, actor tablosunda bulunan ancak customer tablosunda bulunmayan first_name sütunundaki verileri listeler ve alfabetik olarak sıralar.
+```sql
+(
+    SELECT first_name 
+    FROM actor
+)
+EXCEPT
+(
+    SELECT first_name 
+    FROM customer
+)
+ORDER BY first_name;
+```
+
+### 4. Actor ve Customer Tablolarında Bulunan First_name Sütunları İçin Tüm Verileri Tekrar Eden Verilerle Birlikte Sıralayalım
+Bu sorgu, actor ve customer tablolarındaki first_name sütunlarını birleştirir ve tekrar eden verilerle birlikte alfabetik olarak sıralar.
+```sql
+(
+    SELECT first_name 
+    FROM actor
+)
+UNION ALL
+(
+    SELECT first_name 
+    FROM customer
+)
+ORDER BY first_name;
+```
+
+### 5. Actor ve Customer Tablolarında Bulunan First_name Sütunları İçin Kesişen Verileri Tekrar Eden Verilerle Birlikte Sıralayalım
+Bu sorgu, actor ve customer tablolarındaki first_name sütunlarında kesişen (ortak) verileri tekrar eden verilerle birlikte listeler ve alfabetik olarak sıralar.
+```sql
+(
+    SELECT first_name 
+    FROM actor
+)
+INTERSECT
+(
+    SELECT first_name 
+    FROM customer
+)
+ORDER BY first_name;
+```
+
+### 6. Actor ve Customer Tablolarında Bulunan First_name Sütunları İçin İlk Tabloda Bulunan Ancak İkinci Tabloda Bulunmayan Verileri Tekrar Eden Verilerle Birlikte Sıralayalım
+Bu sorgu, actor tablosunda bulunan ancak customer tablosunda bulunmayan first_name sütunundaki verileri tekrar eden verilerle birlikte listeler ve alfabetik olarak sıralar.
+```sql
+(
+    SELECT first_name 
+    FROM actor
+)
+EXCEPT
+(
+    SELECT first_name 
+    FROM customer
+)
+ORDER BY first_name;
+```
+***
