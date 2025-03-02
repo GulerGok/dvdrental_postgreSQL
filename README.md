@@ -457,6 +457,6 @@ EXCEPT
     SELECT first_name 
     FROM customer
 )
-ORDER BY first_name;
+ORDER BY first_name; 
 ```
 ***
